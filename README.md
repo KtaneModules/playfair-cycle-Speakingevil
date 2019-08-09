@@ -1,1 +1,1 @@
-# playfair-cycle
+#[ModKit Wiki](../../wiki)

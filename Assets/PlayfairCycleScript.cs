@@ -46,7 +46,7 @@ public class PlayfairCycleScript : MonoBehaviour
         if (moduleSolved == false)
         {
             Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
-            if (k == 26)
+            if (k == 25)
             {
                 pressCount = 0;
                 answer = string.Empty;

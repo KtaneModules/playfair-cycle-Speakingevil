@@ -89,7 +89,7 @@ public class PlayfairCycleScript : MonoBehaviour
             List<string>[] keyword = new List<string>[2] { new List<string> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "Y", "Z" }, new List<string> { } };
             string[][] keytable = new string[5][] { new string[5], new string[5], new string[5], new string[5], new string[5] };
             List<string>[] ciph = new List<string>[] { new List<string> { }, new List<string> { } };
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
                 dialText[i].text = string.Empty;
                 rot[1][i] = rot[0][i];

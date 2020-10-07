@@ -279,7 +279,7 @@ public class PlayfairCycleScript : MonoBehaviour
         else
         {
             command = command.ToUpperInvariant();
-            var word = Regex.Match(command, @"^\s*([A-Z]+)\s*$");
+            var word = Regex.Match(command, @"^\s*([A-WYZ]+)\s*$");
             if (!word.Success)
             {
                 yield return "sendtochaterror \"" + command + "\" is an invalid command";
@@ -289,7 +289,7 @@ public class PlayfairCycleScript : MonoBehaviour
             command = command.Replace(" ", string.Empty);
             foreach (char letter in command)
             {
-                keys["QWERTYUIOPASDFGHJKLZXCVBNM".IndexOf(letter)].OnInteract();
+                keys["QWERTYUIOPASDFGHJKLZCVBNM".IndexOf(letter)].OnInteract();
                 yield return new WaitForSeconds(0.125f);
             }
         }

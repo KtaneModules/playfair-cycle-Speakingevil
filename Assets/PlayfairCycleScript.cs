@@ -266,31 +266,32 @@ public class PlayfairCycleScript : MonoBehaviour
         yield return null;
     }
 #pragma warning disable 414
-    private string TwitchHelpMessage = "!{0} QWERTYUI [Inputs letters] | !{0} cancel [Deletes inputs]";
+    private string TwitchHelpMessage = "!{0} <A-Z> [Inputs letters] | !{0} cancel [Deletes inputs]";
 #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string command)
     {
 
         if (command.ToLowerInvariant() == "cancel")
         {
-            KeyPress(25);
             yield return null;
+            keys[26].OnInteract();
         }
         else
         {
             command = command.ToUpperInvariant();
-            var word = Regex.Match(command, @"^\s*[QWERTYUIOPASDFGHJKLZCVBNM]+\s*$");
+            var word = Regex.Match(command, @"^\s*([A-Z]+)\s*$");
             if (!word.Success)
             {
+                yield return "sendtochaterror \"" + command + "\" is an invalid command";
                 yield break;
             }
+            yield return null;
             command = command.Replace(" ", string.Empty);
             foreach (char letter in command)
             {
-                KeyPress("QWERTYUIOPASDFGHJKLZCVBNM".IndexOf(letter));
+                keys["QWERTYUIOPASDFGHJKLZXCVBNM".IndexOf(letter)].OnInteract();
                 yield return new WaitForSeconds(0.125f);
             }
-            yield return null;
         }
     }
 }
